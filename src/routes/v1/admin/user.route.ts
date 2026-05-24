@@ -11,6 +11,7 @@ import {
   resetUserFreeTests,
   invalidateUserSessions,
 } from "@/controllers/admin/user.controller";
+import { updatePassword } from "@/controllers/mobile/profile.controller";
 
 const router = Router();
 
@@ -19,6 +20,7 @@ router.get("/stats", verifyToken, verifyAdmin, getUserStats);
 router.get("/search", verifyToken, verifyAdmin, searchUsers);
 router.get("/:id", verifyToken, verifyAdmin, getUserById);
 router.put("/update-profile", verifyToken, verifyAdmin, updateProfile);
+router.put("/update-password", verifyToken, verifyAdmin, updatePassword);
 router.patch("/:id/toggle-ban", verifyToken, verifyAdmin, toggleUserBan);
 router.patch("/:id/reset-free-tests", verifyToken, verifyAdmin, resetUserFreeTests);
 router.post("/:id/invalidate-sessions", verifyToken, verifyAdmin, invalidateUserSessions);
