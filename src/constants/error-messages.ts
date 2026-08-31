@@ -133,6 +133,10 @@ export const ERROR_MESSAGES = {
   // Notification errors
   NOTIFICATION_NOT_FOUND: "Notification not found",
 
+  // Banner errors
+  BANNER_NOT_FOUND: "Banner not found",
+  BANNER_IMAGE_REQUIRED: "Banner image is required",
+
   // Audit errors
   AUDIT_LOG_NOT_FOUND: "Audit log not found",
 

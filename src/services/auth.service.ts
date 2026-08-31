@@ -23,6 +23,7 @@ export class AuthService {
 
     // Send real OTP via SMS API
     const { otpId } = await otpService.sendOTP(phoneNumber);
+    // const otpId = 1234
 
     // Create verification token (links the OTP record to this request)
     const verificationToken = authHelper.signToken(
@@ -119,7 +120,9 @@ export class AuthService {
           myEnvironment.REFRESH_SECRET as string,
           { expiresIn: "7d" },
         );
-
+        await tx.session.deleteMany({
+          where: { userId: user.id },
+        });
         const refreshTokenExpiry = new Date();
         refreshTokenExpiry.setDate(refreshTokenExpiry.getDate() + 7);
 
@@ -138,9 +141,7 @@ export class AuthService {
           },
         });
 
-        await tx.session.deleteMany({
-          where: { userId: user.id },
-        });
+
 
         return { user, accessToken, refreshToken };
       },

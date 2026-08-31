@@ -9,7 +9,7 @@ export const verifyToken = asyncHandler(
   async (req: Request, _res: Response, next: NextFunction) => {
     const token =
       req.cookies?.accessToken || req.headers.authorization?.split(" ")[1];
-
+console.log("testtoken",token)
 
     if (!token) {
       throw new ApiError(401, "Access token required");
@@ -25,7 +25,7 @@ export const verifyToken = asyncHandler(
         userId: decoded.id,
       },
     });
-
+    console.log(session)
     if (!session) {
       throw new ApiError(401, "Invalid or expired session");
     }

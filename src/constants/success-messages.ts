@@ -111,6 +111,13 @@ export const SUCCESS_MESSAGES = {
   ALL_NOTIFICATIONS_READ: "All notifications marked as read",
   NOTIFICATION_DELETED: "Notification deleted successfully",
 
+  // Banner
+  BANNER_CREATED: "Banner created successfully",
+  BANNER_UPDATED: "Banner updated successfully",
+  BANNER_DELETED: "Banner deleted successfully",
+  BANNERS_FETCHED: "Banners fetched successfully",
+  BANNER_FETCHED: "Banner fetched successfully",
+
   // Audit
   AUDIT_LOGS_FETCHED: "Audit logs retrieved successfully",
   AUDIT_LOG_FETCHED: "Audit log retrieved successfully",

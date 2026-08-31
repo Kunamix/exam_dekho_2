@@ -6,6 +6,7 @@ import testRoute from "./test.route";
 import subscriptionRoute from "./subscription.route";
 import paymentRoute from "./payment.route";
 import notificationRoute from "./notification.route";
+import bannerRoute from "./banner.route";
 
 const router = Router();
 
@@ -16,5 +17,6 @@ router.use("/tests", testRoute);
 router.use("/subscriptions", subscriptionRoute);
 router.use("/payments", paymentRoute);
 router.use("/notifications", notificationRoute);
+router.use("/banners", bannerRoute);
 
 export default router;

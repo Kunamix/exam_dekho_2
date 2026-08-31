@@ -11,6 +11,7 @@ import subscriptionRoute from "./subscription.route";
 import paymentRoute from "./payment.route";
 import reportRoute from "./report.route";
 import auditRoute from "./audit.route";
+import bannerRoute from "./banner.route";
 
 const router = Router();
 
@@ -26,5 +27,6 @@ router.use("/subscriptions", subscriptionRoute);
 router.use("/payments", paymentRoute);
 router.use("/reports", reportRoute);
 router.use("/audit", auditRoute);
+router.use("/banners", bannerRoute);
 
 export default router;

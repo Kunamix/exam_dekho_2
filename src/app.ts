@@ -14,10 +14,11 @@ const app: Application = express();
 app.use(helmet());
 app.use(
   cors({
-    origin: ["http://localhost:5173",
+    origin: ["http://localhost:8081",
         "https://dekhoexam.com",
         "https://www.dekhoexam.com",
-        "https://admin.dekhoexam.com"],
+        "https://admin.dekhoexam.com",
+      "http://localhost:5173"],
     optionsSuccessStatus: 200,
     credentials: true,
     maxAge: 86400,

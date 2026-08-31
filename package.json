@@ -6,7 +6,9 @@
   "scripts": {
     "dev": "tsx watch src/server.ts",
     "build": "tsdown src/server.ts --out-dir dist",
-    "start": "node dist/server.mjs"
+    "start": "node dist/server.mjs",
+    "db:generate": "prisma generate",
+    "db:migrate": "prisma migrate dev"
   },
   "keywords": [],
   "author": "",
