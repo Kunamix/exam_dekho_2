@@ -112,17 +112,25 @@ export class AuthService {
         const accessToken = authHelper.signToken(
           { id: user.id },
           myEnvironment.ACCESS_SECRET as string,
-          { expiresIn: "3d" },
+          { expiresIn: "1y" },
         );
 
         const refreshToken = authHelper.signToken(
           { id: user.id },
           myEnvironment.REFRESH_SECRET as string,
-          { expiresIn: "7d" },
+          { expiresIn: "2y" },
         );
+<<<<<<< HEAD
         await tx.session.deleteMany({
           where: { userId: user.id },
         });
+=======
+
+        await tx.session.deleteMany({
+          where: { userId: user.id },
+        });
+
+>>>>>>> 2eb21d07aebf6aeb9aec68159d65c2f926027654
         const refreshTokenExpiry = new Date();
         refreshTokenExpiry.setDate(refreshTokenExpiry.getDate() + 7);
 
@@ -141,8 +149,11 @@ export class AuthService {
           },
         });
 
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> 2eb21d07aebf6aeb9aec68159d65c2f926027654
         return { user, accessToken, refreshToken };
       },
     );
