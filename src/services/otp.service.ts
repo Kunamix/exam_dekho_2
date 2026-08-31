@@ -25,36 +25,37 @@ export class OTPService {
     });
 
     // 2. Generate 4-digit code
-    const code = this.generateCode(); 
+    // const code = this.generateCode(); 
+    const code = "1234"
 
     // 3. Build the SMS message (must match approved DLT template exactly)
-    const message = `Dear User, your Code for Dekho Exam is ${code}. This code is valid for ${APP_CONSTANTS.OTP_EXPIRY_MINUTES} minutes. Please do not share it with anyone. - Dekho Exam Sysgrain Infotech`;
+    // const message = `Dear User, your Code for Dekho Exam is ${code}. This code is valid for ${APP_CONSTANTS.OTP_EXPIRY_MINUTES} minutes. Please do not share it with anyone. - Dekho Exam Sysgrain Infotech`;
 
     // 4. Send SMS via Sysgrain Infotech API
-    try {
-      const { data } = await axios.get(myEnvironment.SMS_BASE_URL as string, {
-        params: {
-          apikey: myEnvironment.SMS_API_KEY,
-          senderid: myEnvironment.SMS_SENDER_ID,
-          templateid: myEnvironment.SMS_TEMPLATE_ID,
-          number: cleanNumber,
-          message,
-        },
-      }); 
+    // try {
+    //   const { data } = await axios.get(myEnvironment.SMS_BASE_URL as string, {
+    //     params: {
+    //       apikey: myEnvironment.SMS_API_KEY,
+    //       senderid: myEnvironment.SMS_SENDER_ID,
+    //       templateid: myEnvironment.SMS_TEMPLATE_ID,
+    //       number: cleanNumber,
+    //       message,
+    //     },
+    //   }); 
 
-      // API returns { status: "Success", code: "011", ... } on success
-      if (data?.status !== "Success") {
-        console.error("SMS API error:", data);
-        throw new Error(data?.description || "SMS delivery failed");
-      }
-    } catch (error: any) {
-      if (error instanceof ApiError) throw error;
-      console.error("SMS send error:", error?.message);
-      throw new ApiError(
-        HTTP_STATUS.INTERNAL_SERVER_ERROR,
-        "Failed to send OTP. Please try again later.",
-      );
-    }
+    //   // API returns { status: "Success", code: "011", ... } on success
+    //   if (data?.status !== "Success") {
+    //     console.error("SMS API error:", data);
+    //     throw new Error(data?.description || "SMS delivery failed");
+    //   }
+    // } catch (error: any) {
+    //   if (error instanceof ApiError) throw error;
+    //   console.error("SMS send error:", error?.message);
+    //   throw new ApiError(
+    //     HTTP_STATUS.INTERNAL_SERVER_ERROR,
+    //     "Failed to send OTP. Please try again later.",
+    //   );
+    // }
 
     // 5. Store OTP in database
     const expiresAt = new Date();
